@@ -188,17 +188,19 @@ def cv_ranking(DATA, rank_on: str, evaluate_on: str):
 
 if __name__ == "__main__":
     
-    DF = F_CSV_DF("test.csv", [""] + ["Num"]*10000)
-    
+    DF = F_CSV_DF("test.csv", [""] + ["Num"]*10000)  ## This is a way to shortcut things
+                                                     ##  We don't care about the rest of 
+                                                     ##  the list (without corresponding
+                                                     ##  data)  
     F_CSV_DF_to_csv(DF, "out.csv")
     
         
     DF = F_CSV_DF("test.csv", [""] + ["Num"]*10000)
     
-    print(F_CSV_DF_lookup(DF, "20000622", "000001.SZ"))
+    print(F_CSV_DF_lookup(DF, "UPDATE_THIS", "UPDATE_THIS"))
     
     
-    New_DATA, Returned_quartiles, Returned_Perfs = cv_ranking(DF, "000002.SZ", "000003.SZ")
+    New_DATA, Returned_quartiles, Returned_Perfs = cv_ranking(DF, "UPDATE_THIS", "UPDATE_THIS")
     
     F_CSV_DF_to_csv(New_DATA, "New_DATA.csv")
     print(Returned_quartiles)
